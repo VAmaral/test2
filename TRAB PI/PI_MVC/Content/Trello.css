@@ -1,0 +1,402 @@
+﻿/***************** Page Struct *****************/
+html, body, form
+{
+    padding: 0;
+    border: 0;
+    font-size: 10pt;
+    vertical-align: top;
+    width: auto;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    width: auto;
+}
+
+body { line-height: 1; }
+
+a
+{
+    text-decoration: none;
+    vertical-align: middle;
+    color: #3A9CD8;
+}
+
+
+span,h1, h2, h3, h4, h5, h6, p, blockquote, a, address, em, q, s, small, strong, sub, var, b, u, i, center, dt, ul, label, legend, canvas, details, header, hgroup
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 10pt;
+    vertical-align: top;
+}
+
+details, header, hgroup, nav { display: block; }
+
+li { vertical-align: middle; }
+
+ol, ul { list-style: none; }
+
+ tbody, tfoot, thead, tr, th, td
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 10pt;
+}
+
+.float-left { float: left; }
+
+.float-right { float: right; }
+
+/***************** Header *****************/
+header
+{
+    background-color: #FFFFFF;
+    width: 100%;
+    min-width: 800px;
+    height: 75px;
+}
+
+header div.wraper { min-height: 100px; }
+
+.site-title { margin-top: 3px; }
+
+.menu
+{
+    float: right;
+    margin-top: 25px;
+    margin-right: 15px;
+}
+
+/***************** Wraper *****************/
+.wraper
+{
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 10px;
+}
+.wraper > div > h3
+{
+    color: #555555;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 19pt;
+    margin-bottom: 6px;
+    text-shadow: 0 1px #fff;
+}
+
+.wraper > div > h3 + div
+{
+    color: #999;
+    font-size: 8pt;
+    margin-bottom: 20px;
+    text-shadow: 0 1px #fff;
+}
+
+.wraper > div > h3 + div span
+{
+    font-size: 8pt;
+    margin-left: 10px;
+}
+
+/***************** Action bar *****************/
+#actionBar
+{
+    background: transparent url('../Images/Layout/bgBreadcrumbTile.png') repeat-x left top;
+    height: 58px;
+    line-height: 50px;
+    width: 100%;
+    min-width: 800px;
+}
+
+#actionBar h1, #actionBar h2
+{
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 0;
+    text-shadow: 0 -1px #444;
+    vertical-align: middle;
+}
+
+#actionBar h1, #actionBar h1 a,#actionBar h1 span, #actionBar h2 { font-family: Arial, Verdana, Helvetica, sans-serif; }
+
+#actionBar h1, #actionBar h1 a, #actionBar h1 span, #actionBar h1 span a { font-size: 20pt; }
+
+#actionBar h1 a
+{
+    border-bottom: 1px dotted #868686;
+    color: #fff;
+}
+
+#actionBar h2 { font-size: 10pt; }
+
+#actionBar div.wraper
+{
+    background: transparent url('../Images/Layout/bgGlow.png') no-repeat left 3px;
+    padding-left: 25px;
+}
+
+/***************** Content *****************/
+#contentWraper {
+  height: auto !important;
+  margin: 0 auto -54px;
+  min-height: 100%;
+  width: 100%;
+}
+
+#mainContentDiv
+{
+  font-family: Arial,Verdana, Helvetica, sans-serif;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding-bottom: 70px;
+}
+
+#body
+{
+    font-family: Arial, Verdana,Helvetica, sans-serif;
+    display: block;
+    font-size: 11pt ;
+    line-height: 150%;
+    color: #666;
+    margin-bottom: 0px;
+    padding-top: 25px;
+}
+
+#body p
+{
+    font-family: Arial, Verdana,Helvetica, sans-serif;
+    line-height: 200%;
+    color: #666666;
+}
+
+/***************** Footer *****************/
+footer
+{
+    clear: both;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 800px;
+    height: 50px;
+    text-align: center;
+    background-color: Black;
+    border-top: 4px solid #c2c8c8;
+    font-size: 10pt;
+    font-family: sans-serif !important;
+}
+
+footer p
+{
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+/***************** Login & Register *****************/
+.loginForm
+{
+    margin: 0 auto;
+    text-align: left;
+    width: 300px;
+}
+
+.registerForm
+{
+    margin: 0 auto;
+    text-align: left;
+    width: 300px;
+}
+
+.changePasswordForm
+{
+    margin: 0 auto;
+    text-align: left;
+    width: 500px;
+}
+
+.changePasswordForm fieldset { width: 300px; }
+
+/***************** Inputs *****************/
+label, input[type="radio"] { vertical-align: middle; }
+
+input[type="checkbox"] { vertical-align:middle; }
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus { background-color: #eaf6fc!important; }
+
+input:-webkit-autofill
+{
+    background-color: #eaf6fc !important;
+    color:#777;
+}
+
+input[type="text"], input[type="password"], textarea
+{
+    border-radius: 2px;
+    border: 1px solid #d0d0d0;
+    box-shadow: 0 1px 0 0 #fff, inset 0 0 0 1px #eee;
+    color: #777;
+    font-size: 10pt;
+    padding: 4px;
+    width: 285px;
+}
+
+textarea  
+{
+    resize: none;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #666666;
+}
+
+select
+{
+    font-size:8pt;
+    border: 1px solid #D0D0D0;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 1px 0 0 #FFFFFF, 0 0 0 1px #EEEEEE inset;
+    color: #777;
+    font-size: 10pt;
+    padding-left: 4px;
+    height:25px;
+    outline:0;
+ }
+
+/***************** Fieldset *****************/
+fieldset
+{
+    padding: 0px;
+    border: 0px;
+    text-align: left;
+    display: inline;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 11pt ;
+    line-height: 150%;
+    color: #666666;
+}
+
+fieldset div { padding-bottom: 0px; }
+
+fieldset a { color: #3A9CD8; }
+
+fieldset label
+{ 
+    color: #666666; 
+    line-height: 20px;
+    text-shadow: 0 1px #fff;
+}
+
+legend
+{
+    font-weight: bold;
+    background-color: #4A4A4A;
+    background-image: url("../Images/Layout/bgTotal.png");
+    background-position: 0 0;
+    background-repeat: repeat no-repeat;
+    border-bottom-color: #4A4A4A !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-style: solid !important;
+    border-bottom-width: 0 !important;
+    border-left-color: #4A4A4A !important;
+    border-left-style: solid !important;
+    border-left-width: 0 !important;
+    border-right-color: #4A4A4A !important;
+    border-right-style: solid !important;
+    border-right-width: 0 !important;
+    border-top-color: #4A4A4A !important;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-top-style: solid !important;
+    border-top-width: 0 !important;
+    color: #FFFFFF;
+    text-align: center !important;
+    font-size: 11pt;
+    font-weight: bold;
+    line-height: 28px;
+    width: 100%;
+}
+
+/***************** Headers *****************/
+h1, h2, h3, h4, h5, h6 { font-size: 1.5em; }
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 { padding: 0 0 10px 0; }
+
+h3 { font-size: 1.2em; }
+
+h4 { font-size: 1.1em; }
+
+h5, h6 { font-size: 1em; }
+
+/***************** Errors *****************/
+.field-validation-error, .validation-summary-errors
+{
+    color: red;
+    display: block;
+}
+
+.validation-summary-errors { padding-top: 15px; }
+
+.editor-field { padding-bottom: 10px; }
+
+/***************** List of Boards *****************/
+.boardsList, .list
+{
+    width: 350px;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 25px;
+}
+
+div .boardsList fieldset, div .list fieldset
+{
+    width: 100%;
+    padding-bottom: 10px;
+}
+div .boardsList fieldset ul, div .list fieldset ul { margin-left: 10px; }
+
+#ListsList, #BoardsList
+{
+    min-width: 775px;
+    height: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.list > fieldset
+{
+    background-color: #CCCCCC;
+    padding: 0px 5px 0px 5px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.card
+{
+    
+    background-color: wheat;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.cardButtons { margin-top: 5px; }
+
+
+.floatRight{ float: right;margin-right:30% }

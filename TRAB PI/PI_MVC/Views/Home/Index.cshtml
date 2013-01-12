@@ -1,0 +1,23 @@
+﻿@model PI_MVC.Models.DTO.AllBoardsDTO
+
+@{
+    if(Request.IsAuthenticated) {
+        ViewBag.Title = "Listagem de Quadros";
+    }
+    else
+    {
+        ViewBag.Title = "Bem-vindo ao Trello";
+    }
+        
+}
+
+@if(Request.IsAuthenticated) {
+    <h2>@ViewBag.Title</h2>
+    <p>Adicionar texto e links para outras áreas.</p>
+    
+    @Html.ActionLink("Lista de Boards", "Index", "Board")
+}
+else {
+    <h2>@ViewBag.Title</h2>
+    <p>Seja bem-vindo ao Trello desenvolvido pelo Grupo 14.</p>
+}

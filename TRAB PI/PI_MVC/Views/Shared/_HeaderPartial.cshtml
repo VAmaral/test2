@@ -1,0 +1,28 @@
+﻿<header>
+    <div class="wraper">
+        <div class="float-left">
+            <p class="site-title">
+                <a href="@Url.Action("Index", "Home")"><img src="/Images/Layout/trello_logo.png" width="300" /></a>
+            </p>
+        </div>
+        <div class="menu">
+            <section id="login">
+                @Html.Partial("_LogOnPartial")
+            </section>
+            <nav>
+                @Html.Label("", "[ ")
+                @Html.ActionLink("Página Inicial", "Index", "Home")
+                @Html.Label("", " | ")
+                @if (Request.IsAuthenticated)
+                {
+                    @Html.ActionLink("Gerir Utilizadores", "ManageUsers", "Account")
+                    @Html.Label("", " | ")
+                    @Html.ActionLink("Terminar Sessão", "LogOff", "Account")
+                    @Html.Label("", " | ")
+                }
+                @Html.ActionLink("Acerca", "About", "Home")
+                @Html.Label("", " ]")
+            </nav>
+        </div>
+    </div>
+</header>

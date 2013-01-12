@@ -1,0 +1,12 @@
+﻿@model PI_MVC.Models.User
+
+    @if(@ViewData["Role"]!= null && @ViewData["Role"].Equals("admin")){
+        @Html.ActionLink("Togle Role", "ChangeRole", new { userId = @Model.NickName})
+    }
+    else{
+      @Html.ActionLink("Edit Profile", "EditProfile", new { userId = @Model.NickName })
+      @Html.Label("", "|")
+      @Html.ActionLink("Change Pass","ChangePassword","Account")
+     }
+    @Html.Label("", "|")
+    @Html.ActionLink("Delete User","Delete",new {userId = @Model.NickName})

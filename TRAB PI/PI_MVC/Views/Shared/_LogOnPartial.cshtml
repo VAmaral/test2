@@ -1,0 +1,17 @@
+﻿<div style="text-align: right;">
+    @if(Request.IsAuthenticated) {
+        @Html.Label("", "Bem-vindo ")
+        @Html.ActionLink(User.Identity.Name, "Manage", "Account")
+        @Html.Label("", " | ")
+        @Html.ActionLink("My Profile","Profile","User")
+        @Html.Label("", " ]")
+        @Html.Label("", ".")
+    }
+    else {
+        @Html.Label("", "[ ")
+        @Html.ActionLink("Iniciar Sessão", "LogOn", "Account")
+        @Html.Label("", " | ")
+        @Html.ActionLink("Registar Conta", "Register", "Account")
+        @Html.Label("", " ]")
+    }
+</div>

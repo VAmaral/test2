@@ -1,0 +1,42 @@
+﻿@model WebGarden_PI.Model.Board
+
+@{
+    ViewBag.Title = "Criar Quadro";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@Html.Hidden("boardNames", @ViewData["userBoardsName"], new {id="list"})
+
+<div class="registerForm">
+    <h2>@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("create","Board")) {
+        
+            <fieldset>
+                <legend>Informações do quadro</legend>
+                <div>
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field" id="erro_name">
+                    @Html.EditorFor(model => model.Name, new {id="Name"})
+                    @*@Html.ValidationMessageFor(model => model.Name)*@
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Description)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Description, new { rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+                <div>
+                    <div style="display: inline;">@Html.ActionLink("Voltar", "Index", "Home")</div>
+                    <div style="display: inline; float: right; text-align: right;"><input type="submit" value="Criar Quadro" style="float: right;" /></div>                        
+                </div>
+            </fieldset>
+            @Html.ValidationSummary(true, "Ocorreu um erro ao criar o quadro. Por favor corrija os erros e tente novamente:")
+        
+    }
+
+</div>

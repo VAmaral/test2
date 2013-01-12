@@ -1,0 +1,51 @@
+﻿@model WebGarden_PI.Model.Card
+
+@{
+    ViewBag.Title = "Criar Cartão";
+}
+
+
+<div class="registerForm">
+    <h2>@ViewBag.Title</h2>
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    @Html.Hidden("cardNames", @ViewData["userCardNames"], new {id="list"})
+
+    @*NOTA: Se tiver id deverá editar em vez de criar!*@
+    @using (Html.BeginForm()) {
+        <div>
+            <fieldset>
+                <legend>Informações do cartão</legend>
+                <div>
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field" id="erro_name">
+                    @Html.TextBoxFor(model => model.Name, new { id= "Name"})
+                    @*@Html.ValidationMessageFor(model => model.Name)*@
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Description)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.EndDate)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.EndDate)
+                    @Html.ValidationMessageFor(model => model.EndDate)
+                </div>
+                <br />
+                <div>
+                    @Html.ActionLink("Voltar atrás", "Details", "Board", new { id = Request.QueryString.Get("board") }, null)
+                    <input type="submit" value="Criar Cartão" style="float: right;" />
+                </div>
+            </fieldset>
+            @Html.ValidationSummary(true, "Ocorreu um erro ao criar o cartão. Por favor corrija os erros e tente novamente:")
+        </div>
+    }
+</div>

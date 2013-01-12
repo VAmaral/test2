@@ -1,0 +1,28 @@
+﻿@model PI_MVC.Models.User
+@using  PI_MVC.Extension
+@{
+    ViewBag.Title = "Validate";
+}
+
+<h2>Validate</h2>
+@{
+    try {
+        WebMail.SmtpServer = "smtp.gmail.com";
+        WebMail.SmtpPort = 587;
+        WebMail.EnableSsl = true;
+        WebMail.UserName = "ProgramacaoNaInternet@gmail.com";
+        WebMail.Password = "HttpStateless";
+        WebMail.From = "ProgramacaoNaInternet@gmail.com"; 
+        WebMail.Send(@Model.Email, "Dados da Conta", "Os seus dados para login são:\n User: "+@Model.NickName+ "\n Password: "
+           +@Model.Password+"\n Aceda ao link " + @Html.GetUrl(@Request.Url, "Account/LogOn")
+            + " para poder fazer login");
+    } catch (Exception) {
+        @:<b>@Model.NickName, não conseguimos enviar um e-mail com os seus dados</b>
+    }
+}
+
+<div>
+    <h3>@Model.NickName, foi-lhe enviado um e-mail com os dados da sua conta</h3>
+   
+</div>
+@Html.ActionLink("Login", "LogOn", "Account")

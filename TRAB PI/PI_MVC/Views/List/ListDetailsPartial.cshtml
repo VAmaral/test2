@@ -1,0 +1,12 @@
+﻿@model PI_MVC.Models.DTO.ListDetailsDTO
+
+
+
+<fieldset>
+<legend>Details</legend>
+    <div class="display-label">
+         Name:
+        @Html.DisplayFor(model => (model.SingleList.Second as WebGarden_PI.Model.List).Name)
+    </div>
+    <p>@Html.ActionLink("voltar atrás","Details","Board", new {id=Model.BoardId}, null)</p>
+</fieldset>

@@ -1,0 +1,30 @@
+﻿@model PI_MVC.Models.User
+@using PI_MVC.Extension
+@{
+    ViewBag.Title = "SendMail Confirmation";
+}
+
+@{
+    try {
+        WebMail.SmtpServer = "smtp.gmail.com";
+        WebMail.SmtpPort = 587;
+        WebMail.EnableSsl = true;
+        WebMail.UserName = "ProgramacaoNaInternet@gmail.com";
+        WebMail.Password = "HttpStateless";
+        WebMail.From = "ProgramacaoNaInternet@gmail.com"; 
+        WebMail.Send(@Model.Email, "Validação da Conta", "Aceda ao link " +
+                @Html.GetUrl(@Request.Url, "Home/Validate", @Model.NickName)
+            + " para que a sua conta seja validada");
+    } catch (Exception) {
+        @:<b>Sorry @Model.NickName, we couldn't send the email to confirm your Register</b>
+    }
+}
+
+<div>
+    <h3>@Model.NickName, foi-lhe enviado um e-mail para confirmar o registo</h3>
+   
+</div>
+
+@Html.ActionLink("Back Home", "Index")
+
+<h2>SendMail</h2>

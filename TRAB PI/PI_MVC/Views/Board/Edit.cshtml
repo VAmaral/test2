@@ -1,0 +1,46 @@
+﻿@model PI_MVC.Models.DTO.BoardDetailsDTO
+
+@{
+    ViewBag.Title = "Detalhes do Quadro";
+    ViewBag.BoardName = (@Model.SingleBoard.Second as WebGarden_PI.Model.Board).Name;
+    ViewBag.Description = (@Model.SingleBoard.Second as WebGarden_PI.Model.Board).Description;
+}
+
+@*<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>*@
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+
+<style type="text/css">.floatRight{ float: right;margin-right:30% }</style>
+
+@Html.Hidden("boardNames", @ViewData["userBoardsName"], new {id="list"})
+
+@* detalhes do quadro *@
+<fieldset id="display">
+  @Html.Partial("BoardDetailsPartial",Model.SingleBoard.Second) 
+</fieldset>
+
+<fieldset class ="floatRight">
+<legend>Edit</legend>
+@using (Html.BeginForm("Edit", "Board", new { Id = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id ,isAjaxRequest = false})) {
+
+       <div>
+         @Html.Label("Name:")
+       </div>
+       <div class="editor-field" id="erro_name">
+          @Html.EditorFor(model => (model.SingleBoard.Second as WebGarden_PI.Model.Board).Name)
+        </div>
+        <div>
+            @Html.Label("Description:")
+         </div>
+        <div class="editor-field">
+        @Html.TextAreaFor(model => (model.SingleBoard.Second as WebGarden_PI.Model.Board).Description,new { rows = 5 })
+       </div>
+    <p>
+        <input type="submit" value="editar" id="editar" />
+    </p>
+}
+</fieldset>
+
+
+
+

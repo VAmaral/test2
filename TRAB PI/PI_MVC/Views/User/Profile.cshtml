@@ -1,0 +1,19 @@
+﻿@model PI_MVC.Models.User
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>My Profile</h2>
+
+<span class="display-label">Nick Name: @Model.NickName</span>
+<br />
+<span class="display-label">Nome: @Model.Name</span>
+<br />
+<span class="display-label"> Email: @Model.Email</span>
+<br />
+<span class="display-label">User Role: @Model.Role</span>
+
+<br />
+@Html.Partial("_EditUserProfilePartial",@Model)
+

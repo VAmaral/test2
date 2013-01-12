@@ -1,0 +1,37 @@
+﻿@model PI_MVC.Models.DTO.ListDetailsDTO
+
+@{
+    ViewBag.Title = "Detalhes da Lista";
+    ViewBag.ListName = (@Model.SingleList.Second as WebGarden_PI.Model.List).Name;
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<style type="text/css">.floatRight{ float: right;margin-right:30% }</style>
+
+@Html.Hidden("listNames", @ViewData["userListName"], new {id="list"})
+
+
+@* detalhes do quadro *@
+ @Html.Partial("ListDetailsPartial",Model) 
+
+<fieldset class ="floatRight">
+<legend>Edit</legend>
+@using (Html.BeginForm("Edit", "List", new { board= Model.BoardId, Id = (Model.SingleList.Second as WebGarden_PI.Model.List).Id ,isAjaxRequest = false})) {
+
+       <div>
+         @Html.Label("Name:")
+       </div>
+       <div class="editor-field"id="erro_name">
+          @Html.EditorFor(model => (model.SingleList.Second as WebGarden_PI.Model.List).Name)
+        </div>
+    <p>
+        <input type="submit" value="Edit" />
+    </p>
+}
+</fieldset>
+
+
+

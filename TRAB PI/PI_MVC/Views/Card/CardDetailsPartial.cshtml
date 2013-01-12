@@ -1,0 +1,26 @@
+﻿@model PI_MVC.Models.DTO.CardDetailsDTO
+
+<fieldset>
+<legend>Details</legend>
+    <div class="display-label">
+        Name:
+        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Name)
+    </div>
+    <div class="display-label">
+        Description:
+        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Description)
+    </div>
+
+    <div class="display-label">
+        BeginDate:
+        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).BeginDate)
+    </div>
+
+    <div class="display-label">
+        EndDate:
+        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).EndDate)
+    </div>
+   <p>
+    @Html.ActionLink("Voltar atrás", "Details", "Board", new { id =Model.Board }, null)
+   </p>
+</fieldset>

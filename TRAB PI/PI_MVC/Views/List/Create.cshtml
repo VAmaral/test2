@@ -1,0 +1,39 @@
+﻿@model WebGarden_PI.Model.List
+
+@{
+    ViewBag.Title = "Criar Lista";
+}
+
+
+<div class="registerForm">
+    <h2>@ViewBag.Title</h2>
+
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    @Html.Hidden("listNames", @ViewData["userListName"], new {id="list"})
+
+    @*NOTA: Se tiver id deverá editar em vez de criar!*@
+    @using (Html.BeginForm("Create", "List", new {board= @ViewData["boardId"]}))
+    {
+        <div>
+            <fieldset>
+                <legend>Informações da lista</legend>
+                 <div>
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field" id="erro_name">
+                    @Html.TextBoxFor(model => model.Name, new { id= "Name"})
+                    @*@Html.ValidationMessageFor(model => model.Name)*@
+                </div>
+                <br />
+
+                <div style="display: inline;">
+                    @Html.ActionLink("Voltar atrás", "Edit", "Board", new { id = Request.QueryString.Get("board") }, null)
+                    <input type="submit" value="Criar Lista" style="float: right;" />
+                </div>
+            </fieldset>
+            @Html.ValidationSummary(true, "Ocorreu um erro ao criar a lista. Por favor corrija os erros e tente novamente:")
+        </div>
+    }
+</div>

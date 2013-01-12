@@ -1,0 +1,54 @@
+﻿@model PI_MVC.Models.DTO.CardDetailsDTO
+
+@{
+    ViewBag.Title = "Detalhes do cartão";
+  
+
+}
+
+<style type="text/css">.floatRight{ float: right;margin-right:30% }</style>
+
+
+
+
+<fieldset class ="floatRight">
+      <legend>Edit</legend>
+    @using (Html.BeginForm("Edit", "Card", new { board = Request.QueryString.Get("board"),
+                                                list = Request.QueryString.Get("list"),
+                                                cId = (Model.SingleCard.Second as WebGarden_PI.Model.Card).Id}))
+    {
+        
+        <div>
+            @Html.Label("Name")
+        </div>
+        <div class="editor-field">
+           @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Name)
+           @*@Html.ValidationMessageFor(model => model.SingleCard.Second as WebGarden_PI.Model.Card).Name)*@
+        </div>
+        <div>
+           @Html.Label("Description")
+        </div>
+        <div class="editor-field">
+           @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Description)
+           @*@Html.ValidationMessageFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Description)*@
+         </div>
+         <div>
+           @Html.Label("BeginDate")
+         </div>
+         <div class="editor-field">
+           @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).BeginDate)
+           @*@Html.ValidationMessageFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).BeginDate)*@
+         </div>
+         <div>
+            @Html.Label("EndDate")
+         </div>
+         <div class="editor-field">
+            @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).EndDate)
+            @*@Html.ValidationMessageFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).EndDate)*@
+         </div>
+          <br />
+          <div>
+            <input type="submit" value="Edit" style="float: right;" />
+          </div>
+    }
+       </fieldset>
