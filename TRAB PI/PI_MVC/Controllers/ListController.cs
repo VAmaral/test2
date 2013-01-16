@@ -50,7 +50,7 @@ namespace PI_MVC.Controllers
                 
 
             }
-            if (_userRepo.BoardOnlyEdit(bid,currUser))
+            else if (_userRepo.BoardOnlyEdit(bid,currUser))
             {
                 dto.IsOwned = false;
                 dto.IsVisual = false;
@@ -112,7 +112,7 @@ namespace PI_MVC.Controllers
         // POST: /List/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int board, List l)
+        public ActionResult Edit(int board, List l, bool isAjaxRequest)
         {
             if (_repo.SubList(board, l))
             {
@@ -123,7 +123,9 @@ namespace PI_MVC.Controllers
                 listDto.IsOwned = _userRepo.IsUserBoard(board, currUser);
                 listDto.IsVisual = _userRepo.BoardOnlyVis(board, currUser);
                 listDto.BoardId = board;
-                return View(listDto);
+                if (!isAjaxRequest)
+                    return View(listDto);
+                return PartialView("ListDetailsPartial", listDto);
             }
             return View(_repo.GetList(board, l.Id));
         }
@@ -131,23 +133,17 @@ namespace PI_MVC.Controllers
         //
         // GET: /List/Delete/5
  
-        public ActionResult Delete(string board, string id)
-        {
-            return View(board, id);
-        }
-
         //
         // POST: /List/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(string board, Pair list)
+       
+        public ActionResult Delete(string board, string list)
         {
-            if ((bool)list.First)
-            {
-                _repo.DeleteList(int.Parse(board), (int)list.Second);
-                return View("Board", "Details", board);
-            }
-            return new HttpNotFoundResult("Erro");
+            
+            _repo.DeleteList(int.Parse(board), int.Parse(list));
+
+            return RedirectToAction("Index", "Board");
+
         }
     }
 }

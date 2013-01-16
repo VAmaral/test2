@@ -3,12 +3,21 @@
 @{
     ViewBag.Title = (@Model.SingleBoard.Second as WebGarden_PI.Model.Board).Name;
     ViewBag.Description = (@Model.SingleBoard.Second as WebGarden_PI.Model.Board).Description;
+    
 }
 
-<p>@Html.ActionLink("Edit board","Edit",new{id =(Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id})</p>
-<p>@Html.ActionLink("Adicionar Lista", "Create", "List", new { bid = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id }, null)</p>
-<br />
+<span>
+    @Html.ActionLink("Edit board","Edit",new{id =(Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id})
+    <br />
+    @if(!Model.IsVisual){
+    @Html.ActionLink("Adicionar Lista", "Create", "List", new { bid = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id }, null)
+    }
+         <br />
+     @Html.ActionLink("Arquivo", "Archive", "Board",new { bid = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id }, null)
+</span>
 
+    @Html.Partial("BoardSharePartial",Model) 
+<br />
 <div id="ListsList">
     @{
         if (Model.BoardLists != null && Model.BoardLists.Count() > 0)
@@ -24,21 +33,31 @@
                                 <div><strong>@Html.Label(card.Name)</strong></div>
                                 <div>@Html.Label(card.Description)</div>
                                 <div class="cardButtons">
+
                                     <div style="display: inline;">
                                         @Html.ActionLink("Editar", "Edit", "Card", new { board = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id, list = list.Id, id =  card.Id }, null)
                                     </div>
-                                   
+                                    
                                 </div>
                             </div>
                         }
+
                          <div>
                                     <div style="display: inline;">
                                         @Html.ActionLink("Editar", "Edit", "List", new { board = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id, list= list.Id}, null)
                                     </div>
+                                    @if(!Model.IsVisual){
                                     <div style="text-align: right; padding-top: 5px;">
                                         @Html.ActionLink("Adicionar Cartão", "Create", "Card", new { board = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id, list = list.Id }, null)
                                     </div>
-                                </div>
+                                        if (Model.IsOwned&&Model.BoardCards[list.Id].Count == 0)
+                                        {
+                                        <div>
+                                         @Html.ActionLink("Eliminar lista", "Delete", "List", new { board = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id, list = list.Id }, null)
+                                        </div>
+                                    }
+                                    }
+                        </div>
                         
                     </fieldset>
                 </div>

@@ -1,0 +1,23 @@
+﻿@model PI_MVC.Models.DTO.BoardDetailsDTO
+
+@if(Model.IsOwned){
+<div class="shareForm">
+     @using (@Html.BeginForm("Share","Board",new {bid = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id})) {
+  <fieldset>
+                <legend>Partilhar com:</legend>
+                <div id="username">
+                    @Html.Label("UserName:")@Html.TextBox("user")
+                </div>
+                <div id ="allowEdit"> 
+                    @Html.Label("Permitir Edição:") @Html.CheckBox("edit")
+                </div>
+                    <div style="display: inline; float: right; text-align: right;">
+                        @*@Html.ActionLink("Partilhar", "Share", new { bid = Model.Id, user="vitor", edit=false })*@
+                        <input type ="submit" value="partilhar" style="float: right;" />
+                    </div>                        
+                
+    </fieldset>
+    }
+
+</div>
+}

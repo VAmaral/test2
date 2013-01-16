@@ -253,6 +253,8 @@
     <Content Include="Views\List\ListDetailsPartial.cshtml" />
     <Content Include="Views\Card\CardDetailsPartial.cshtml" />
     <Content Include="Views\Board\CreateBoardPartial.cshtml" />
+    <Content Include="Views\Board\BoardSharePartial.cshtml" />
+    <Content Include="Views\Board\Archive.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -13,14 +13,25 @@
    
     @Html.Hidden("cardNames", @ViewData["userCardNames"], new {id="list"})
 
-    @Html.Partial("CardDetailsPartial",Model) 
-
+    <fieldset id="display">
+    @Html.Partial("CardDetailsPartial",Model.SingleCard.Second) 
+   </fieldset>
+   <fieldset>
+    @if (Model.IsOwned) { 
+       <p>
+         @Html.ActionLink("Apagar cartão", "Delete", new { board= Model.Board, list= Model.List, card=(Model.SingleCard.Second as WebGarden_PI.Model.Card).Id }, null)
+        </p>
+    }
+    </fieldset>
+      @if(!Model.IsVisual){
     <fieldset class="floatRight">
-    @using (Html.BeginForm()) {
-                  
+    @using (Html.BeginForm("Edit", "Card",  new {Id = (Model.SingleCard.Second as WebGarden_PI.Model.Card).Id,
+        board= Request.QueryString.Get("board"),list = Request.QueryString.Get("list"),
+        IsAjaxRequest = false}))
+    {     
                 <legend>Edit</legend>
                 <div>
-                    @Html.LabelFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card) .Name)
+                    @Html.LabelFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Name)
                 </div>
                 <div class="editor-field"  id="erro_name">
                     @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Name)
@@ -29,31 +40,30 @@
                 <div>
                     @Html.LabelFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Description)
                 </div>
-                <div class="editor-field">
+                <div class="editor-field" id="erro_desc">
                     @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Description)
                     @Html.ValidationMessageFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Description)
                 </div>
                 <div>
                     @Html.LabelFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).BeginDate)
                 </div>
-                <div class="editor-field">
+                <div class="editor-field" id="erro_BeginDate">
                     @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).BeginDate)
                     @Html.ValidationMessageFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).BeginDate)
                 </div>
                 <div>
                     @Html.LabelFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).EndDate)
                 </div>
-                <div class="editor-field">
+                <div class="editor-field" id="erro_EndDate">
                     @Html.TextBoxFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).EndDate)
                     @Html.ValidationMessageFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).EndDate)
                 </div>
                 <br />
                 <div>
-                    <input type="submit" value="Guardar Alterações" style="float: right;" />
+                    <input type="submit" value="editar" id="editar"  style="float: right;" />
                 </div>
            
             @Html.ValidationSummary(true, "Ocorreu um erro ao editar o cartão. Por favor corrija os erros e tente novamente:")
-        
-         
     }
 </fieldset>
+}

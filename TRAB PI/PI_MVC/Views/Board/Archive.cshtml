@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebGarden_PI.Model.Card>
+
+@{
+    ViewBag.Title = "Archive";
+}
+
+@foreach (var card in Model)
+                        {
+                            <div id="@card.Id" class="card">
+                                <div><strong>@Html.Label(card.Name)</strong></div>
+                                <div>@Html.Label(card.Description)</div>
+                            </div>
+                        }
+  <p>@Html.ActionLink("voltar atrás","Details","Board", new {id=ViewData["board"]}, null)</p>
+

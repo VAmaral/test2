@@ -115,7 +115,7 @@ namespace WebGarden_PI.Model
             foreach (List li in listRepo[bid])
                 if (li.Id == lid)
                 {
-                    listRepo[bid].Remove(new LinkedListNode<List>(li));
+                    listRepo[bid].Remove(li);
                     return true;
                 }
             return false;
@@ -221,6 +221,19 @@ namespace WebGarden_PI.Model
             }
             return res.Substring(0, res.Count() - 1);
             
+        }
+
+
+        public IEnumerable<Card> GetArchive(int bid)
+        {
+           LinkedList<Card> archive = cardRepo[bid][listRepo[bid].ElementAt(0).Id];
+            return archive;
+        }
+
+
+        public void ArchiveCard(int board, int list, int card)
+        {
+            MoveCard(board, list, listRepo[board].ElementAt(0).Id, card, 0);
         }
     }
 }

@@ -1,26 +1,25 @@
-﻿@model PI_MVC.Models.DTO.CardDetailsDTO
+﻿@model WebGarden_PI.Model.Card
 
-<fieldset>
+@Html.Hidden("card", Model.Name, new {id="name"}) 
 <legend>Details</legend>
     <div class="display-label">
         Name:
-        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Name)
+        @Html.DisplayFor(model => Model.Name)
     </div>
     <div class="display-label">
         Description:
-        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).Description)
+        @Html.DisplayFor(model => Model.Description)
     </div>
 
     <div class="display-label">
         BeginDate:
-        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).BeginDate)
+        @Html.DisplayFor(model => Model.BeginDate)
     </div>
 
     <div class="display-label">
         EndDate:
-        @Html.DisplayFor(model => (model.SingleCard.Second as WebGarden_PI.Model.Card).EndDate)
+        @Html.DisplayFor(model => Model.EndDate)
     </div>
    <p>
-    @Html.ActionLink("Voltar atrás", "Details", "Board", new { id =Model.Board }, null)
+    @Html.ActionLink("Voltar atrás", "Details", "Board", new { id =@ViewData["board"] }, null)
    </p>
-</fieldset>

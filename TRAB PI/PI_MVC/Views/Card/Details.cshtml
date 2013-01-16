@@ -10,7 +10,7 @@
 
 
 
-
+@if(!Model.IsVisual){
 <fieldset class ="floatRight">
       <legend>Edit</legend>
     @using (Html.BeginForm("Edit", "Card", new { board = Request.QueryString.Get("board"),
@@ -52,3 +52,4 @@
           </div>
     }
        </fieldset>
+}

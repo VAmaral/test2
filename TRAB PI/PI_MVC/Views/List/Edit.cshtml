@@ -14,12 +14,17 @@
 @Html.Hidden("listNames", @ViewData["userListName"], new {id="list"})
 
 
-@* detalhes do quadro *@
+@* detalhes dda lista *@
+<fieldset id="display">
  @Html.Partial("ListDetailsPartial",Model) 
+</fieldset>
 
+ 
+  @if(!Model.IsVisual){
 <fieldset class ="floatRight">
 <legend>Edit</legend>
-@using (Html.BeginForm("Edit", "List", new { board= Model.BoardId, Id = (Model.SingleList.Second as WebGarden_PI.Model.List).Id ,isAjaxRequest = false})) {
+@using (Html.BeginForm("Edit", "List", new { board= Model.BoardId, 
+    Id = (Model.SingleList.Second as WebGarden_PI.Model.List).Id ,isAjaxRequest = false})) {
 
        <div>
          @Html.Label("Name:")
@@ -28,10 +33,10 @@
           @Html.EditorFor(model => (model.SingleList.Second as WebGarden_PI.Model.List).Name)
         </div>
     <p>
-        <input type="submit" value="Edit" />
+        <input type="submit" value="editar" id="editar" />
     </p>
 }
 </fieldset>
-
+    }
 
 

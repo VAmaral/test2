@@ -33,5 +33,9 @@ namespace WebGarden_PI.Model
         string GetAllListsNameExceptArchive(int bid);
 
         string GetAllCardNames(int bid, int lid);
+
+        IEnumerable<Card> GetArchive(int bid);
+
+        void ArchiveCard(int board, int list, int card);
     }
 }

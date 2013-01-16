@@ -103,26 +103,6 @@ C:\Users\Vitor\Dropbox\PI\PI 2012_2013 Inverno\0.2.0\PI_MVC\bin\System.Web.WebPa
 C:\Users\Vitor\Dropbox\PI\PI 2012_2013 Inverno\0.2.0\PI_MVC\obj\Debug\PI_MVC.csprojResolveAssemblyReference.cache
 C:\Users\Vitor\Dropbox\PI\PI 2012_2013 Inverno\0.2.0\PI_MVC\obj\Debug\PI_MVC.dll
 C:\Users\Vitor\Dropbox\PI\PI 2012_2013 Inverno\0.2.0\PI_MVC\obj\Debug\PI_MVC.pdb
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\PI_MVC.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\PI_MVC.pdb
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\EntityFramework.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Helpers.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Mvc.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Providers.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Razor.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Deployment.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Razor.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\EntityFramework.xml
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Helpers.xml
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Mvc.xml
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Razor.xml
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.xml
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Deployment.xml
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Razor.xml
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\obj\Debug\PI_MVC.dll
-C:\Users\patrick\Desktop\TRAB PI\PI_MVC\obj\Debug\PI_MVC.pdb
 C:\Users\costaps\Desktop\TRAB PI\TRAB PI\PI_MVC\bin\PI_MVC.dll
 C:\Users\costaps\Desktop\TRAB PI\TRAB PI\PI_MVC\bin\PI_MVC.pdb
 C:\Users\costaps\Desktop\TRAB PI\TRAB PI\PI_MVC\bin\EntityFramework.dll
@@ -332,3 +312,105 @@ C:\Users\patrick\Desktop\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013-16_06\T
 C:\Users\patrick\Desktop\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.WebPages.Razor.xml
 C:\Users\patrick\Desktop\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\obj\Debug\PI_MVC.dll
 C:\Users\patrick\Desktop\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\obj\Debug\PI_MVC.pdb
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\PI_MVC.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\PI_MVC.pdb
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\EntityFramework.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.Helpers.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.Mvc.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.Providers.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.Razor.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.WebPages.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\EntityFramework.xml
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.Helpers.xml
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.Mvc.xml
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.Razor.xml
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.WebPages.xml
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\obj\Debug\PI_MVC.dll
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\obj\Debug\PI_MVC.pdb
+C:\Users\Vitor\Desktop\TRAB PI - 12-01-2013\TRAB PI - 10-01-2013-16_06\TRAB PI - 10-01-2013\TRAB PI\PI_MVC\obj\Debug\PI_MVC.csprojResolveAssemblyReference.cache
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\PI_MVC.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\PI_MVC.pdb
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\EntityFramework.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Helpers.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Mvc.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Providers.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Razor.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\EntityFramework.xml
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Helpers.xml
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Mvc.xml
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.Razor.xml
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.xml
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\obj\Debug\PI_MVC.dll
+C:\Users\patrick\Desktop\TRAB PI\PI_MVC\obj\Debug\PI_MVC.pdb
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\PI_MVC.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\PI_MVC.pdb
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\EntityFramework.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.Helpers.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.Mvc.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.Providers.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.Razor.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.WebPages.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\EntityFramework.xml
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.Helpers.xml
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.Mvc.xml
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.Razor.xml
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.WebPages.xml
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\obj\Debug\PI_MVC.dll
+C:\Users\Vitor\Desktop\14-01-2013\PI_MVC\obj\Debug\PI_MVC.pdb
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\PI_MVC.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\PI_MVC.pdb
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\EntityFramework.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Helpers.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Mvc.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Providers.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Razor.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\EntityFramework.xml
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Helpers.xml
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Mvc.xml
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Razor.xml
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.xml
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.csprojResolveAssemblyReference.cache
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.dll
+C:\Users\Vitor\Desktop\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.pdb
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\PI_MVC.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\PI_MVC.pdb
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\EntityFramework.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Helpers.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Mvc.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Providers.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Razor.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\EntityFramework.xml
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Helpers.xml
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Mvc.xml
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.Razor.xml
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.xml
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.dll
+C:\Users\patrick\Desktop\15-01-2013- sharing_Delete_archive_done\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.pdb

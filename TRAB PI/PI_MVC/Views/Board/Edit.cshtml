@@ -19,6 +19,7 @@
   @Html.Partial("BoardDetailsPartial",Model.SingleBoard.Second) 
 </fieldset>
 
+@if(!Model.IsVisual){
 <fieldset class ="floatRight">
 <legend>Edit</legend>
 @using (Html.BeginForm("Edit", "Board", new { Id = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id ,isAjaxRequest = false})) {
@@ -40,7 +41,7 @@
     </p>
 }
 </fieldset>
-
+}
 
 
 

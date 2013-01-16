@@ -33,14 +33,14 @@
                         <table id="tblEditBoard" border="0">
                             <tbody>
                                 <tr>
-                                    <th>Utilizador</th>
-                                    <th>Quadro</th>
+                                    <th>Utilizador </th>
+                                    <th> Quadro</th>
                                 </tr>
                                 @foreach (var pair in Model.EditBoard)
                                 {
                                     <tr>
-                                        <td>pair.First</td>
-                                        <td>@Html.ActionLink(((WebGarden_PI.Model.Board)pair.Second).Name, "Index", "Board", new { id = ((WebGarden_PI.Model.Board)pair.Second).Id }, null)</td>
+                                        <td>@pair.First.ToString()</td>
+                                        <td>@Html.ActionLink(((WebGarden_PI.Model.Board)pair.Second).Name, "Details", "Board", new { id = ((WebGarden_PI.Model.Board)pair.Second).Id }, null)</td>
                                     </tr>
                                     }
                             </tbody>
@@ -69,8 +69,8 @@
                                 @foreach (var pair in Model.VisualBoard)
                                 {
                                     <tr>
-                                        <td>pair.First</td>
-                                        <td>@Html.ActionLink(((WebGarden_PI.Model.Board)pair.Second).Name, "Index", "Board", new { id = ((WebGarden_PI.Model.Board)pair.Second).Id }, null)</td>
+                                        <td>@pair.First.ToString()</td>
+                                        <td>@Html.ActionLink(((WebGarden_PI.Model.Board)pair.Second).Name, "Details", "Board", new { id = ((WebGarden_PI.Model.Board)pair.Second).Id }, null)</td>
                                     </tr>
                                     }
                             </tbody>

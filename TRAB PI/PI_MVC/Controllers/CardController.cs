@@ -52,7 +52,7 @@ namespace PI_MVC.Controllers
                 dto.IsVisual = true;
                 dto.SingleCard = new Pair(_userRepo.GetVis(bid,currUser).First, _repo.GetCard(bid, lid, cid));
             }
-            if (_userRepo.BoardOnlyEdit(bid,currUser))
+            else if (_userRepo.BoardOnlyEdit(bid, currUser))
             {
                 dto.IsOwned = false;
                 dto.IsVisual = false;
@@ -91,7 +91,7 @@ namespace PI_MVC.Controllers
         
         //
         // GET: /Card/Edit/5
- 
+
         public ActionResult Edit(string board, string list, string id)
         {
             currUser = User.Identity.Name;
@@ -100,13 +100,14 @@ namespace PI_MVC.Controllers
             int cid = int.Parse(id);
             Card c = _repo.GetCard(bid, lid, cid);
             if (c == null) return new HttpNotFoundResult("O Cartão não existe");
-            CardDetailsDTO cardDto= new CardDetailsDTO();
+            CardDetailsDTO cardDto = new CardDetailsDTO();
             cardDto.Board = board;
             cardDto.List = list;
             cardDto.SingleCard = new Pair(currUser, c);
             cardDto.IsOwned = _userRepo.IsUserBoard(bid, currUser);
             cardDto.IsVisual = _userRepo.BoardOnlyVis(bid, currUser);
             ViewData["UserCardNames"] = _repo.GetAllCardNames(bid, lid);
+            ViewData["board"] = board;
             return View(cardDto);
         }
 
@@ -114,35 +115,27 @@ namespace PI_MVC.Controllers
         // POST: /Card/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(string board, string list,string cId, Card c)
+        public ActionResult Edit(int board, int list, Card c, bool isAjaxRequest)
         {
-            c.Id= int.Parse(cId);
-            if (_repo.SubCard(int.Parse(board), int.Parse(list), c))
-                //return View("Board", "Details", board);
-                return RedirectToAction("Details", "Card", new { board = board,list = list, id = c.Id});
-            return new HttpNotFoundResult("Error");
+            _repo.SubCard(board, list, c);
+            ViewData["board"] = board;
+            //return View("Board", "Details", board);
+            if (!isAjaxRequest)
+                return RedirectToAction("Edit", "Card", new { board = board, list = list, id = c.Id });
+
+            return PartialView("CardDetailsPartial", _repo.GetCard(board, list, c.Id));
         }
 
         //
         // GET: /Card/Delete/5
- 
-        public ActionResult Delete(string board, string list, string id)
-        {
-            return View(board, list, id);
-        }
 
-        //
-        // POST: /Card/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(string board, string list, Pair card)
+      
+        public ActionResult Delete(string board, string list, string card)
         {
-            if ((bool)card.First)
-            {
-                _repo.DeleteCard(int.Parse(board), int.Parse(list), (int)card.Second);
-                return View("Board", "Details", board);
-            }
-            return new HttpNotFoundResult("Erro");
+
+                _repo.DeleteCard(int.Parse(board), int.Parse(list), int.Parse(card));
+                return RedirectToAction("Index", "Board");
+          
         }
     }
 }

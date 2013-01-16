@@ -1,4 +1,5 @@
-﻿using System.Security.Principal;
+﻿using System;
+using System.Security.Principal;
 using System.Web.Mvc;
 using System.Web.UI;
 using PI_MVC;
@@ -34,6 +35,17 @@ namespace PI_MVC.Controllers
             return View(dto);
             //return PartialView("MyPartialBoards");
         }
+        [HttpPost]
+        public ActionResult Share(string bid, string user, bool edit) {
+
+            if(edit)_userRepo.GiveForEdit(user, int.Parse(bid), User.Identity.Name);
+            else    _userRepo.GiveForVisual(user, int.Parse(bid), User.Identity.Name);
+            Object b= _userRepo.BoardsAllowedEdit(user);
+
+            return RedirectToAction("Index");
+
+            
+        }
 
         //
         // GET: /Board/Edit/5
@@ -51,7 +63,7 @@ namespace PI_MVC.Controllers
                 dto.IsVisual = true;
                 dto.SingleBoard = _userRepo.GetVis(id,currUser);                
             }
-            if (_userRepo.BoardOnlyEdit(id,currUser))
+            else if (_userRepo.BoardOnlyEdit(id,currUser))
             {
                 dto.IsOwned = false;
                 dto.IsVisual = false;
@@ -119,10 +131,27 @@ namespace PI_MVC.Controllers
             {
 
                 BoardDetailsDTO dto = new BoardDetailsDTO();
-                dto.SingleBoard = new Pair(currUser, _repo.GetBoard(id));
+                if (_userRepo.BoardOnlyVis(id, currUser))
+                {
+                    dto.IsOwned = false;
+                    dto.IsVisual = true;
+                    dto.SingleBoard = _userRepo.GetVis(id, currUser);
+                }
+                else if (_userRepo.BoardOnlyEdit(id, currUser))
+                {
+                    dto.IsOwned = false;
+                    dto.IsVisual = false;
+                    dto.SingleBoard = _userRepo.GetEdit(id, currUser);
+                }
+                else
+                {
+                    dto.IsOwned = true;
+                    dto.IsVisual = false;
+                    dto.SingleBoard = new Pair(currUser, _repo.GetBoard(id));
+                }
                 dto.BoardLists = _repo.GetAllListsExceptArchive(id);
                 dto.BoardCards = _repo.ShowListsAndCards(id);
-
+                ViewData["show"] = dto.IsOwned;
                 return View(dto);
             }
             return new HttpUnauthorizedResult("Não tem permissão para editar este quadro");
@@ -137,6 +166,21 @@ namespace PI_MVC.Controllers
                 return PartialView("MyPartialBoards", _userRepo.AllUserBoards(User.Identity.Name));
             }
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Archive(int bid) {
+            ViewData["board"] = bid;
+            return View(_repo.GetArchive(bid));
+        
+        
+        }
+       
+        public ActionResult ArchiveCard(int board, int list, int card)
+        {
+
+            _repo.ArchiveCard(board, list, card);
+            return RedirectToAction("Index");
+
         }
     }
 }

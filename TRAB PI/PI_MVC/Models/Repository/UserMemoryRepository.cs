@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using PI_MVC;
@@ -155,20 +155,60 @@ namespace PI_MVC.Models.Repository
         //disponibiliza uma board para visualização ao user especificado
         public bool GiveForVisual(string user, int id,string currentUser)
         {
+			//Validar
+			//não existe board ou não existe user?
             if (_repo.GetBoard(id) == null || !_users.ContainsKey(user)) return false;
+			//Inicializar o repository letSee para o user se ainda não estiver inicializado
             if (!letSee[currentUser].ContainsKey(user)) letSee[currentUser].Add(user, new LinkedList<int>());
-            letSee[currentUser][user].AddLast(id);
-            userVisBoard[user].AddLast(new Pair(user, id));
+			//Já tinha sido partilhado com estas mesmas permissões?
+            if(letSee[currentUser][user].Contains(id))return true;
+			//Inicializar o repositorio letEdit para o user se ainda não estiver inicializado
+			if (!letEdit[currentUser].ContainsKey(user)) letEdit[currentUser].Add(user, new LinkedList<int>());
+
+            if(!userVisBoard.ContainsKey(user))userVisBoard[user]= new LinkedList<Pair>();
+			//Já tinha partilhado mas com outras permissoes? apaga essas entradas então
+			if(letEdit[currentUser][user].Contains(id)){
+				letEdit[currentUser][user].Remove(id);
+                foreach (Pair p in userEditBoard[user])
+                    if (int.Parse(p.Second.ToString()) == id)
+                    {
+                        userEditBoard[user].Remove(p);
+                        break;
+                    }
+			}
+			//Adiciona uma entrada no repositorio 
+			letSee[currentUser][user].AddLast(id);
+            userVisBoard[user].AddLast(new Pair(currentUser, id));
             return true;
         }
 
         //disponibiliza uma board para edição ao user especificado
         public bool GiveForEdit(string user, int id,string currentUser)
         {
+           //Validar
+			//não existe board ou não existe user?
             if (_repo.GetBoard(id) == null || !_users.ContainsKey(user)) return false;
+			//Inicializar o repository letSee para o user se ainda não estiver inicializado
             if (!letEdit[currentUser].ContainsKey(user)) letEdit[currentUser].Add(user, new LinkedList<int>());
-            letEdit[currentUser][user].AddLast(id);
-            userEditBoard[user].AddLast(new Pair(user, id));
+			//Já tinha sido partilhado com estas mesmas permissões?
+            if(letEdit[currentUser][user].Contains(id))return true;
+			//Inicializar o repositorio letEdit para o user se ainda não estiver inicializado
+			if (!letSee[currentUser].ContainsKey(user)) letSee[currentUser].Add(user, new LinkedList<int>());
+
+            if (!userEditBoard.ContainsKey(user)) userEditBoard[user] = new LinkedList<Pair>();
+			//Já tinha partilhado mas com outras permissoes? apaga essas entradas então
+			if(letSee[currentUser][user].Contains(id)){
+				letSee[currentUser][user].Remove(id);
+                foreach (Pair p in userVisBoard[user])
+                    if (int.Parse(p.Second.ToString()) == id)
+                    {
+                        userVisBoard[user].Remove(p);
+                        break;
+                    }
+			}
+			//Adiciona uma entrada no repositorio 
+			letEdit[currentUser][user].AddLast(id);
+            userEditBoard[user].AddLast(new Pair(currentUser, id));
             return true;
         }
 

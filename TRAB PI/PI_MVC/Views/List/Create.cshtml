@@ -29,8 +29,8 @@
                 <br />
 
                 <div style="display: inline;">
-                    @Html.ActionLink("Voltar atrás", "Edit", "Board", new { id = Request.QueryString.Get("board") }, null)
-                    <input type="submit" value="Criar Lista" style="float: right;" />
+                    @Html.ActionLink("Voltar atrás", "Details", "Board", new { id = Request.QueryString.Get("bid") }, null)
+                    <input type="submit" value="criar" style="float: right;" id="create" />
                 </div>
             </fieldset>
             @Html.ValidationSummary(true, "Ocorreu um erro ao criar a lista. Por favor corrija os erros e tente novamente:")
