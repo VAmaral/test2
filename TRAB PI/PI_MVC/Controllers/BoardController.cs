@@ -157,7 +157,7 @@ namespace PI_MVC.Controllers
         {
 
             _repo.ArchiveCard(board, list, card);
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", new { id = board });
 
         }
     }

@@ -120,7 +120,7 @@ namespace PI_MVC.Controllers
             
             _repo.DeleteList(int.Parse(board), int.Parse(list));
 
-            return RedirectToAction("Index", "Board");
+            return RedirectToAction("Details", "Board", new {id= int.Parse(board)});
 
         }
     }

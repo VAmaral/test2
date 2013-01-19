@@ -475,3 +475,4 @@ C:\Users\Vitor\Desktop\19-01-2013_lll\15-01-2013- sharing_Delete_archive_done\PI
 C:\Users\Vitor\Desktop\19-01-2013_lll\15-01-2013- sharing_Delete_archive_done\PI_MVC\bin\System.Web.WebPages.Razor.xml
 C:\Users\Vitor\Desktop\19-01-2013_lll\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.dll
 C:\Users\Vitor\Desktop\19-01-2013_lll\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.pdb
+C:\Users\Vitor\Desktop\19-01-2013_lll\15-01-2013- sharing_Delete_archive_done\PI_MVC\obj\Debug\PI_MVC.csprojResolveAssemblyReference.cache
