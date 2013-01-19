@@ -56,7 +56,7 @@ namespace PI_MVC.Controllers
             var searchReturnCard = new System.Collections.Generic.List<SearchDTO>();
 
             //Realiza a pesquisa nos boards
-            foreach (var board in _repo.GetAllBoard())
+            foreach (var board in _userRepo.AllUserBoards(User.Identity.Name))
             {
                 if (board.Name.ToLower().Contains(term))
                 {
