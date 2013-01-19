@@ -112,6 +112,7 @@
     <Compile Include="Models\DTO\BoardDetailsDTO.cs" />
     <Compile Include="Models\DTO\CardDetailsDTO.cs" />
     <Compile Include="Models\DTO\ListDetailsDTO.cs" />
+    <Compile Include="Models\DTO\SearchDTO.cs" />
     <Compile Include="Models\Entity\Board.cs" />
     <Compile Include="Models\Entity\Card.cs" />
     <Compile Include="Models\Entity\List.cs" />
@@ -190,6 +191,7 @@
     <Content Include="Images\Layout\bgBreadcrumbTile.png" />
     <Content Include="Images\Layout\bgGlow.png" />
     <Content Include="Images\Layout\bgTotal.png" />
+    <Content Include="Images\Layout\search.png" />
     <Content Include="Images\Layout\trello_logo.png" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
@@ -200,6 +202,8 @@
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\Search.js" />
+    <Content Include="Scripts\Sortable.js" />
     <Content Include="Scripts\validate.form.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

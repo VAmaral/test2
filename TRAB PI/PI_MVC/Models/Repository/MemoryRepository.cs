@@ -171,20 +171,25 @@ namespace WebGarden_PI.Model
             return false;
         }
 
-        public bool MoveCard(int bid, int l_old, int l_new, int cid, int position) {
-            Card c=GetCard(bid, l_old, cid);
-            if (c== null) return false;
-            if (cardRepo[bid][l_new].Count == 0) {
+        public bool MoveCard(int bid, int l_old, int l_new, int cid, int position)
+        {
+            Card c = GetCard(bid, l_old, cid);
+            if (c == null) return false;
+            if (cardRepo[bid][l_new].Count == 0)
+            {
                 cardRepo[bid][l_new].AddLast(c);
-                cardRepo[bid][l_old].Remove(c); 
+                cardRepo[bid][l_old].Remove(c);
                 return true;
             }
-            int idx=position;
+            int idx = position;
             if (idx > cardRepo[bid][l_new].Count) idx = cardRepo[bid][l_new].Count;
-            LinkedListNode<Card> node=cardRepo[bid][l_new].First;
-            for (int i = 0; i < idx; ++i)node = node.Next;
+            LinkedListNode<Card> node = cardRepo[bid][l_new].First;
+            for (int i = 0; i < idx; ++i) node = node.Next;
             cardRepo[bid][l_old].Remove(c);
-            cardRepo[bid][l_new].AddBefore(node, c);
+            if (node == null)
+                cardRepo[bid][l_new].AddLast(c);
+            else
+                cardRepo[bid][l_new].AddBefore(node, c);
             return true;
         }
 

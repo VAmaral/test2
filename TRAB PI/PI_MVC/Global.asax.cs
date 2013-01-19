@@ -82,7 +82,9 @@ namespace PI_MVC
             });
             _userRepo.AddBoard(new Board {Name = "AVE",Description = "Quadro sobre AVE"}, "vitor");
             _userRepo.AddBoard(new Board { Name = "PC", Description = "Quadro sobre PC" }, "patrick");
-            
+            _userRepo.GiveForEdit("vitor", 1, "patrick");
+            _userRepo.GiveForVisual("vitor", 3, "patrick");
+
             // Use LocalDB for Entity Framework by default
             //Database.DefaultConnectionFactory = new SqlConnectionFactory(@"Data Source=(localdb)\v11.0; Integrated Security=True; MultipleActiveResultSets=True");
 

@@ -117,6 +117,9 @@ namespace PI_MVC.Controllers
                 return RedirectToAction("Details", "Board", new {id=board });
           
         }
+
+
+        [HttpPost]
         public void MoveCardToOtherList(string card, string sender, string receiver, string previousCard, string nextCard, string board)
         {
             try
@@ -161,7 +164,10 @@ namespace PI_MVC.Controllers
                 //Move Card
                 _repo.MoveCard(bid, sid, rid, cid, position);
             }
-            catch (HttpException) { throw; }
+            catch (HttpException ex)
+            {
+                throw ex;
+            }
         }
 
         [HttpPost]
@@ -203,11 +209,15 @@ namespace PI_MVC.Controllers
                         }
                     }
                 }
+
                 //Move Card
                 if (receiverCardList.IndexOf(c) != position)
                     _repo.MoveCard(bid, lid, lid, cid, position);
             }
-            catch (HttpException) { throw; }
+            catch (HttpException ex)
+            {
+                throw ex;
+            }
         }
     }
 }

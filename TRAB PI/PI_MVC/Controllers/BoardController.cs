@@ -119,7 +119,8 @@ namespace PI_MVC.Controllers
         
         //
         // GET: /Board/Details/5
- 
+
+       
         public ActionResult Details(int id)
         {
             string currUser = User.Identity.Name;

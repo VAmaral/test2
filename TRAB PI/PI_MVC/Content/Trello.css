@@ -383,8 +383,7 @@ div .boardsList fieldset ul, div .list fieldset ul { margin-left: 10px; }
 }
 
 .card
-{
-    
+{  
     background-color: wheat;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -399,4 +398,34 @@ div .boardsList fieldset ul, div .list fieldset ul { margin-left: 10px; }
 .cardButtons { margin-top: 5px; }
 
 
-.floatRight{ float: right;margin-right:30% }
+.floatRight { float: right ;margin-right: 30%; }
+
+.ui-sortable-placeholder
+{
+    background: none !important;
+    border: 2px dashed wheat;
+    visibility: visible !important;
+}
+
+.ui-autocomplete {
+    background-color: wheat;
+    color: #3A9CD8;
+    width: 252px !important;
+    position: fixed !important;
+}
+
+.ui-autocomplete-category {
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+}
+
+.ui-autocomplete-input {
+    margin-top: 2px;
+    width: 250px;
+}
+
+.ui-menu-item { margin: .2em .4em; }
+
+.ui-helper-hidden-accessible { display: none; }

@@ -6,6 +6,11 @@
     
 }
 
+@if (!Model.IsVisual)
+{
+    <script src="@Url.Content("~/Scripts/Sortable.js")" type="text/javascript"></script>
+    @Html.Hidden("BoardId", (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id)
+}
 
 <span>
     @Html.ActionLink("Edit board","Edit",new{id =(Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id})
@@ -29,21 +34,22 @@
                 <div class="list" id="@list.Id">
                     <fieldset>
                         <legend>@list.Name</legend>
-                        @foreach (var card in Model.BoardCards[list.Id])
-                        {
-                            <div id="@card.Id" class="card">
-                                <div><strong>@Html.Label(card.Name)</strong></div>
-                                <div>@Html.Label(card.Description)</div>
-                                <div class="cardButtons">
+                        <div class="droppable" style="min-height: 50px;">
+                            @foreach (var card in Model.BoardCards[list.Id])
+                            {
+                                <div id="@card.Id" class="card" itemid="@list.Id">
+                                    <div><strong>@Html.Label(card.Name)</strong></div>
+                                    <div>@Html.Label(card.Description)</div>
+                                    <div class="cardButtons">
 
-                                    <div style="display: inline;">
-                                        @Html.ActionLink("Editar", "Edit", "Card", new { board = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id, list = list.Id, id =  card.Id }, null)
-                                    </div>
+                                        <div style="display: inline;">
+                                            @Html.ActionLink("Editar", "Edit", "Card", new { board = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id, list = list.Id, id =  card.Id }, null)
+                                        </div>
                                     
+                                    </div>
                                 </div>
-                            </div>
-                        }
-
+                            }
+                        </div>
                          <div>
                                     <div style="display: inline;">
                                         @Html.ActionLink("Editar", "Edit", "List", new { board = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id, list= list.Id}, null)
