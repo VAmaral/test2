@@ -1,11 +1,7 @@
 ﻿<div style="text-align: right;">
     @if(Request.IsAuthenticated) {
         @Html.Label("", "Bem-vindo ")
-        @Html.ActionLink(User.Identity.Name, "Manage", "Account")
-        @Html.Label("", " | ")
-        @Html.ActionLink("My Profile","Profile","User")
-        @Html.Label("", " ]")
-        @Html.Label("", ".")
+        @Html.ActionLink(User.Identity.Name, "Profile","User")
     }
     else {
         @Html.Label("", "[ ")

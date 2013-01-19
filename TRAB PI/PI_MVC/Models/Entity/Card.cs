@@ -10,11 +10,8 @@ namespace WebGarden_PI.Model
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public DateTime BeginDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public string BeginDate { get; set; }
+        public string EndDate { get; set; }
         public int Id { get; set; } 
-        
-
-
     }
 }

@@ -37,33 +37,13 @@ namespace PI_MVC.Controllers
 
         public ActionResult Details(string board, string list, string id)
         {
-            currUser = User.Identity.Name;
+            string currUser = User.Identity.Name;
             int bid = int.Parse(board);
-            int lid = int.Parse(list);
-            int cid = int.Parse(id);
+            
             if (!_userRepo.HasBoard(bid,currUser))
                 return new HttpNotFoundResult("Erro");
             
-            CardDetailsDTO dto = new CardDetailsDTO();
-
-            if (_userRepo.BoardOnlyVis(bid,currUser))
-            {
-                dto.IsOwned = false;
-                dto.IsVisual = true;
-                dto.SingleCard = new Pair(_userRepo.GetVis(bid,currUser).First, _repo.GetCard(bid, lid, cid));
-            }
-            else if (_userRepo.BoardOnlyEdit(bid, currUser))
-            {
-                dto.IsOwned = false;
-                dto.IsVisual = false;
-                dto.SingleCard = new Pair(_userRepo.GetEdit(bid,currUser).First, _repo.GetCard(bid, lid, cid));
-            }
-            else
-            {
-                dto.IsOwned = true;
-                dto.IsVisual = false;
-                dto.SingleCard = new Pair(currUser, _repo.GetCard(bid, lid, cid));
-            }
+            CardDetailsDTO dto = _repo.InitializeCardDetailsDTO( board,  list,  id,  currUser);
            
             return View(dto);
         }
@@ -134,8 +114,100 @@ namespace PI_MVC.Controllers
         {
 
                 _repo.DeleteCard(int.Parse(board), int.Parse(list), int.Parse(card));
-                return RedirectToAction("Index", "Board");
+                return RedirectToAction("Details", "Board", new {id=board });
           
+        }
+        public void MoveCardToOtherList(string card, string sender, string receiver, string previousCard, string nextCard, string board)
+        {
+            try
+            {
+                currUser = User.Identity.Name;
+                int cid = int.Parse(card);
+                int bid = int.Parse(board);
+                int sid = int.Parse(sender);
+                int rid = int.Parse(receiver);
+
+                Card c = _repo.GetCard(bid, sid, cid);
+                if (c == null) throw new HttpException("O Cartão não existe");
+
+                IDictionary<int, LinkedList<Card>> lists = _repo.ShowListsAndCards(bid);
+
+                if (lists[sid] == null) throw new HttpException("A Lista de envio não existe");
+                if (lists[rid] == null) throw new HttpException("A Lista de recepção não existe");
+
+                //Get position
+                List<Card> receiverCardList = new List<Card>();
+                if (lists[rid].First != null)
+                    receiverCardList = lists[rid].First.List.ToList<Card>();
+
+                int position = 0;
+                if (receiverCardList.Count > 0)
+                {
+                    if (!string.IsNullOrEmpty(previousCard))
+                    {
+                        Card receiverCard = receiverCardList.Single(rc => rc.Id.Equals(int.Parse(previousCard)));
+                        position = receiverCardList.IndexOf(receiverCard) + 1;
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(nextCard))
+                        {
+                            Card receiverCard = receiverCardList.Single(rc => rc.Id.Equals(int.Parse(nextCard)));
+                            position = receiverCardList.IndexOf(receiverCard);
+                        }
+                    }
+                }
+
+                //Move Card
+                _repo.MoveCard(bid, sid, rid, cid, position);
+            }
+            catch (HttpException) { throw; }
+        }
+
+        [HttpPost]
+        public void MoveCardInsideList(string card, string list, string previousCard, string nextCard, string board)
+        {
+            try
+            {
+                currUser = User.Identity.Name;
+                int cid = int.Parse(card);
+                int bid = int.Parse(board);
+                int lid = int.Parse(list);
+
+                Card c = _repo.GetCard(bid, lid, cid);
+                if (c == null) throw new HttpException("O Cartão não existe");
+
+                IDictionary<int, LinkedList<Card>> lists = _repo.ShowListsAndCards(bid);
+
+                if (lists[lid] == null) throw new HttpException("A Lista não existe");
+
+                //Get position
+                List<Card> receiverCardList = new List<Card>();
+                if (lists[lid].First != null)
+                    receiverCardList = lists[lid].First.List.ToList<Card>();
+
+                int position = 0;
+                if (receiverCardList.Count > 0)
+                {
+                    if (!string.IsNullOrEmpty(previousCard))
+                    {
+                        Card receiverCard = receiverCardList.Single(rc => rc.Id.Equals(int.Parse(previousCard)));
+                        position = receiverCardList.IndexOf(receiverCard) + 1;
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrEmpty(nextCard))
+                        {
+                            Card receiverCard = receiverCardList.Single(rc => rc.Id.Equals(int.Parse(nextCard)));
+                            position = receiverCardList.IndexOf(receiverCard);
+                        }
+                    }
+                }
+                //Move Card
+                if (receiverCardList.IndexOf(c) != position)
+                    _repo.MoveCard(bid, lid, lid, cid, position);
+            }
+            catch (HttpException) { throw; }
         }
     }
 }

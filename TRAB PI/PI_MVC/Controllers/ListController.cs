@@ -40,30 +40,8 @@ namespace PI_MVC.Controllers
             int lid = int.Parse(id);
             if (_repo.GetList(bid, lid) == null) return new HttpNotFoundResult("A Lista não existe");
             if (!_userRepo.HasBoard(bid, currUser)) return new HttpUnauthorizedResult("Não tem acesso a esta lista");
-            ListDetailsDTO dto = new ListDetailsDTO();
-
-            if (_userRepo.BoardOnlyVis(bid,currUser))
-            {
-                dto.IsOwned = false;
-                dto.IsVisual = true;
-                dto.SingleList = new Pair(_userRepo.GetVis(bid,currUser).First,_repo.GetList(bid, lid));
-                
-
-            }
-            else if (_userRepo.BoardOnlyEdit(bid,currUser))
-            {
-                dto.IsOwned = false;
-                dto.IsVisual = false;
-                dto.SingleList = new Pair(_userRepo.GetEdit(bid,currUser).First, _repo.GetList(bid, lid));
-
-            }
-            else
-            {
-                dto.IsOwned = true;
-                dto.IsVisual = false;
-                dto.SingleList = new Pair(currUser, _repo.GetList(bid, lid));
-            }
-            dto.ListCards = _repo.ShowListsAndCards(bid)[lid];
+            
+            ListDetailsDTO dto=_repo.InitializeListDetailsDTO(bid, lid, currUser);
             return View(dto);
 
         }

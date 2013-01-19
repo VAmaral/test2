@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
+using PI_MVC.Models;
+using PI_MVC.Models.DTO;
 
 namespace WebGarden_PI.Model
 {
@@ -139,7 +143,7 @@ namespace WebGarden_PI.Model
 
         public bool AddCard(int bid, int lid, Card card)
         {
-            card.BeginDate = DateTime.Now;
+            card.BeginDate = DateTime.Now.ToString("dd'/'MM'/'yyyy");
             card.Id = ++cCount;
             cardRepo[bid][lid].AddLast(card);
             return true;
@@ -234,6 +238,106 @@ namespace WebGarden_PI.Model
         public void ArchiveCard(int board, int list, int card)
         {
             MoveCard(board, list, listRepo[board].ElementAt(0).Id, card, 0);
+        }
+
+        public CardDetailsDTO InitializeCardDetailsDTO(string board, string list, string id, string currUser) {
+            IUserRepository _userRepo= RepoLocator.GetUsers();
+            int bid = int.Parse(board);
+            int lid = int.Parse(list);
+            int cid = int.Parse(id);
+           
+            CardDetailsDTO dto = new CardDetailsDTO();
+
+            if (_userRepo.BoardOnlyVis(bid, currUser))
+            {
+                dto.IsOwned = false;
+                dto.IsVisual = true;
+                dto.SingleCard = new Pair(_userRepo.GetVis(bid, currUser).First, GetCard(bid, lid, cid));
+            }
+            else if (_userRepo.BoardOnlyEdit(bid, currUser))
+            {
+                dto.IsOwned = false;
+                dto.IsVisual = false;
+                dto.SingleCard = new Pair(_userRepo.GetEdit(bid, currUser).First, GetCard(bid, lid, cid));
+            }
+            else
+            {
+                dto.IsOwned = true;
+                dto.IsVisual = false;
+                dto.SingleCard = new Pair(currUser, GetCard(bid, lid, cid));
+            }
+            return dto;
+        }
+
+
+
+
+        public bool InitializeBoardDetailsDTO(int id, string currUser, ref BoardDetailsDTO dto)
+        {
+            IUserRepository _userRepo = RepoLocator.GetUsers();
+            if (_userRepo.IsUserBoard(id, currUser) || _userRepo.BoardOnlyEdit(id, currUser) ||
+                _userRepo.HasBoard(id, currUser))
+            {
+
+
+                if (_userRepo.BoardOnlyVis(id, currUser))
+                {
+                    dto.IsOwned = false;
+                    dto.IsVisual = true;
+                    dto.SingleBoard = _userRepo.GetVis(id, currUser);
+                }
+                else if (_userRepo.BoardOnlyEdit(id, currUser))
+                {
+                    dto.IsOwned = false;
+                    dto.IsVisual = false;
+                    dto.SingleBoard = _userRepo.GetEdit(id, currUser);
+                }
+                else
+                {
+                    dto.IsOwned = true;
+                    dto.IsVisual = false;
+                    dto.SingleBoard = new Pair(currUser, GetBoard(id));
+                }
+                dto.BoardLists = GetAllListsExceptArchive(id);
+                dto.BoardCards = ShowListsAndCards(id);
+               
+                return true;
+            }
+            return false;
+        }
+
+
+
+
+        public ListDetailsDTO InitializeListDetailsDTO(int bid, int lid, string currUser)
+        {
+            IUserRepository _userRepo = RepoLocator.GetUsers();
+            ListDetailsDTO dto = new ListDetailsDTO();
+            if (_userRepo.BoardOnlyVis(bid, currUser))
+            {
+                dto.IsOwned = false;
+                dto.IsVisual = true;
+                dto.SingleList = new Pair(_userRepo.GetVis(bid, currUser).First, GetList(bid, lid));
+
+
+            }
+            else if (_userRepo.BoardOnlyEdit(bid, currUser))
+            {
+                dto.IsOwned = false;
+                dto.IsVisual = false;
+                dto.SingleList = new Pair(_userRepo.GetEdit(bid, currUser).First, GetList(bid, lid));
+
+            }
+            else
+            {
+                dto.IsOwned = true;
+                dto.IsVisual = false;
+                dto.SingleList = new Pair(currUser, GetList(bid, lid));
+            }
+            dto.ListCards = ShowListsAndCards(bid)[lid];
+
+            return dto;
+
         }
     }
 }

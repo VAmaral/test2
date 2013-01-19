@@ -77,8 +77,9 @@ namespace PI_MVC
             _userRepo.AddBoard(new Board {Name = "PI",Description = "Quadro sobre PI" }, "patrick");//id 1
             _repo.AddList(1, new List { Name = "ToDo" });
             _repo.AddList(1, new List {Name = "Doing" });
-            _repo.AddCard(1,2,new Card {Name = "Java",Description ="JavaScript",BeginDate = DateTime.Now,
-                EndDate = DateTime.Now.AddDays(endDate) });
+            _repo.AddCard(1,2,new Card {Name = "Java",Description ="JavaScript",
+                                       EndDate = DateTime.Now.AddDays(endDate).ToString("dd'/'MM'/'yyyy")
+            });
             _userRepo.AddBoard(new Board {Name = "AVE",Description = "Quadro sobre AVE"}, "vitor");
             _userRepo.AddBoard(new Board { Name = "PC", Description = "Quadro sobre PC" }, "patrick");
             

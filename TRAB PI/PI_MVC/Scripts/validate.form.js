@@ -84,14 +84,14 @@
             $(div).append("<p id=\"invField\" style=\"color:red\"> The field is required.</p>");
             return null;
         }
-        var d = str.split(" ");
-        var m = d[0].match(/^(\d{1,2})\-(\d{1,2})\-(\d{4})$/);
+
+        var m = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
         if (!m) {
-            $(div).append("<p id=\"invFormat\" style=\"color:red\"> Invalid date format. Put format dd-mm-yyyy.</p>");
+            $(div).append("<p id=\"invFormat\" style=\"color:red\"> Invalid date format. Put format dd/mm/yyyy.</p>");
             return null;
         }
 
-        if (!IsDateValid(m[0].split("-"))) {
+        if (!IsDateValid(m[0].split("/"))) {
             $(div).append("<p id=\"invDate\" style=\"color:red\"> Invalid date");
             return null;
         }
@@ -121,8 +121,8 @@
     function isChecked(endDate, beginDate) {
         var ar1 = endDate.split(" ");
         var ar2 = beginDate.split(" ");
-        ar1 = ar1[0].split("-");
-        ar2 = ar2[0].split("-");
+        ar1 = ar1[0].split("/");
+        ar2 = ar2[0].split("/");
         return IsDateValid(ar1, ar2);
     }
     function IsFormValid(val, attrVal, endDate, beginDate) {
@@ -207,7 +207,23 @@
                 }
             }
 
-
+        var share = document.getElementById("share");
+        if (share != null) {
+            share.onclick = function () {
+                var val = $("#user").val();
+                var name;
+                var invalidName = "<p id=\"invName\" style=\"color:red\">The NickName " + val + " not exist.</p>";
+                var users = $('#list').val().split(",");
+                $("#invName").remove();
+                for (var i = 0; i < users.length; i++) {
+                    if (users[i] == val) { name = val; break; }
+                }
+                if (name == undefined) {
+                    $("#erro_name").append(invalidName);
+                    return false;
+                }
+            }
+        }
         //VALIDATION NAMES
         document.getElementById("Name").onblur = function () {
             var val = $(this).val(); /*OU $(this).attr("value")*/

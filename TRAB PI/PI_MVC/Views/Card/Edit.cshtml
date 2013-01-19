@@ -16,13 +16,15 @@
     <fieldset id="display">
     @Html.Partial("CardDetailsPartial",Model.SingleCard.Second) 
    </fieldset>
-   <fieldset>
+
     @if (Model.IsOwned) { 
-       <p>
+      <br />
          @Html.ActionLink("Apagar cartão", "Delete", new { board= Model.Board, list= Model.List, card=(Model.SingleCard.Second as WebGarden_PI.Model.Card).Id }, null)
-        </p>
+       <br />
+         @Html.ActionLink("Arquivar cartão", "ArchiveCard","Board", new { board= Model.Board, list= Model.List, card=(Model.SingleCard.Second as WebGarden_PI.Model.Card).Id }, null)
+        
     }
-    </fieldset>
+
       @if(!Model.IsVisual){
     <fieldset class="floatRight">
     @using (Html.BeginForm("Edit", "Card",  new {Id = (Model.SingleCard.Second as WebGarden_PI.Model.Card).Id,

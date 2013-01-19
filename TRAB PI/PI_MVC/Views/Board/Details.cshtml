@@ -6,6 +6,7 @@
     
 }
 
+
 <span>
     @Html.ActionLink("Edit board","Edit",new{id =(Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id})
     <br />
@@ -16,6 +17,7 @@
      @Html.ActionLink("Arquivo", "Archive", "Board",new { bid = (Model.SingleBoard.Second as WebGarden_PI.Model.Board).Id }, null)
 </span>
 
+    @Html.Hidden("users", @ViewData["users"], new {id="list"})
     @Html.Partial("BoardSharePartial",Model) 
 <br />
 <div id="ListsList">

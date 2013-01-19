@@ -49,11 +49,10 @@ namespace PI_MVC.Controllers
                             return RedirectToAction("Index", "Home");
                         }
                     }
-                    message = "user not registed.";
                 }
                 else
                 {
-                    message = "user name or password incorrect.";
+                    message = "user name or password incorrect or user not registed.";
                     ModelState.AddModelError("", message);
                 }
             }
@@ -149,15 +148,6 @@ namespace PI_MVC.Controllers
         {
             return View();
         }
-
-        //
-        // GET: /Account/Manage
-        [Authorize]
-        public ActionResult Manage()
-        {
-            return View();
-        }
-
         //
         // GET: /Account/ManageUsers
         [AuthorizationFilter("admin")]

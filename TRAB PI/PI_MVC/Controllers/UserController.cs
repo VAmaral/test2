@@ -22,14 +22,14 @@ namespace PI_MVC.Controllers
             {
                 if (_userRepo.GetUser(User.Identity.Name).Role.Equals("admin"))
                 {
-                    ViewData["Role"] = "admin";
+                    ViewData["Role"] = "admin"; 
                 }
             }
             else
             {
                 userId = User.Identity.Name;
             }
-
+            ViewData["user"] = userId;
 
             return View(_userRepo.GetUser(userId));
         }
@@ -56,28 +56,18 @@ namespace PI_MVC.Controllers
         //
         // GET: /User/Delete/5
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string userId)
         {
-            return View();
+            _userRepo.DeleteUser(_userRepo.GetUser(userId));
+            if (userId.Equals(User.Identity.Name))
+            {
+                FormsAuthentication.SignOut();
+               return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("ManageUser", "Account");
+
         }
 
-        //
-        // POST: /User/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(User u)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
         [AuthorizationFilter("admin")]
         public ActionResult ChangeRole(string userId)
         {

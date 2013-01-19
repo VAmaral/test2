@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PI_MVC.Models.DTO;
 
 
 namespace WebGarden_PI.Model
@@ -28,14 +29,13 @@ namespace WebGarden_PI.Model
         bool SubBoard(Board b);
         bool SubList(int bid, List l);
         bool SubCard(int bid, int lid, Card c);
-
-
         string GetAllListsNameExceptArchive(int bid);
-
         string GetAllCardNames(int bid, int lid);
-
         IEnumerable<Card> GetArchive(int bid);
-
         void ArchiveCard(int board, int list, int card);
+        CardDetailsDTO InitializeCardDetailsDTO(string board, string list, string id, string currUser);
+        bool InitializeBoardDetailsDTO(int id, string currUser, ref BoardDetailsDTO dto);
+
+        ListDetailsDTO InitializeListDetailsDTO(int bid, int lid, string currUser);
     }
 }

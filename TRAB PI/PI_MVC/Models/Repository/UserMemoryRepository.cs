@@ -88,14 +88,17 @@ namespace PI_MVC.Models.Repository
 
         public string ValidateUser(string userId, string pass)
         {
-            User u = _users[userId];
+            User u = GetUser(userId);
+            
             if (u == null || !u.Password.Equals(pass)) return null;
             return u.Role;
         }
 
         public User GetUser(string userId)
         {
-            return _users[userId];
+            User u = null;
+            _users.TryGetValue(userId, out u);
+            return u;
         }
 
         //Retorna o par (user, id de board) que pode aceder para edição
@@ -342,9 +345,18 @@ namespace PI_MVC.Models.Repository
           string res = "";
           IEnumerable<Board> boards=  AllUserBoards(currUser);
           foreach (Board b in boards) res+=b.Name+",";
-          if (res == "") return "";
-          return res.Substring(0,res.Count() - 1);
+          return res.Equals("") ? res : res.Substring(0, res.Count() - 1);
         }
 
+
+
+        public string GetAllUserList()
+        {
+            string res = "";
+            IEnumerable<User> users = GetAllUser();
+            foreach (User u in users)
+                res += u.NickName + ",";
+            return res.Equals("") ? res : res.Substring(0, res.Count() - 1);
+        }
     }
 }

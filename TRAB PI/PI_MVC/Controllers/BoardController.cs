@@ -44,7 +44,6 @@ namespace PI_MVC.Controllers
 
             return RedirectToAction("Index");
 
-            
         }
 
         //
@@ -125,35 +124,14 @@ namespace PI_MVC.Controllers
         {
             string currUser = User.Identity.Name;
             if(_repo.GetBoard(id)==null)return new HttpNotFoundResult("O quadro não existe");
+            BoardDetailsDTO dto = new BoardDetailsDTO();
 
-            if (_userRepo.IsUserBoard(id, currUser) || _userRepo.BoardOnlyEdit(id, currUser)||
-                _userRepo.HasBoard(id,currUser))
+            if (_repo.InitializeBoardDetailsDTO(id, currUser, ref dto))
             {
-
-                BoardDetailsDTO dto = new BoardDetailsDTO();
-                if (_userRepo.BoardOnlyVis(id, currUser))
-                {
-                    dto.IsOwned = false;
-                    dto.IsVisual = true;
-                    dto.SingleBoard = _userRepo.GetVis(id, currUser);
-                }
-                else if (_userRepo.BoardOnlyEdit(id, currUser))
-                {
-                    dto.IsOwned = false;
-                    dto.IsVisual = false;
-                    dto.SingleBoard = _userRepo.GetEdit(id, currUser);
-                }
-                else
-                {
-                    dto.IsOwned = true;
-                    dto.IsVisual = false;
-                    dto.SingleBoard = new Pair(currUser, _repo.GetBoard(id));
-                }
-                dto.BoardLists = _repo.GetAllListsExceptArchive(id);
-                dto.BoardCards = _repo.ShowListsAndCards(id);
-                ViewData["show"] = dto.IsOwned;
+                ViewData["users"] = _userRepo.GetAllUserList();
                 return View(dto);
             }
+           
             return new HttpUnauthorizedResult("Não tem permissão para editar este quadro");
         }
 
