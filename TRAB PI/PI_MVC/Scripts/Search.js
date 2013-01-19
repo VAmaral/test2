@@ -15,7 +15,7 @@
 $(function () {
     $("#search").catcomplete({
         delay: 500,
-        minLength: 3,
+        minLength: 2,
         select: function (event, ui) { window.location = ui.item.url; },
         source: function (request, response) {
             $.ajax({
